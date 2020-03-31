@@ -1,3 +1,7 @@
 {
-  "name": "personal_website"
+  "name": "personal_website",
+  "private": true,
+  "workspaces": [
+    "modules/*"
+  ]
 }

@@ -105,3 +105,5 @@ dist
 .idea
 .yarn
 *.iml
+.pnp.js
+.firebase
