@@ -1,6 +1,7 @@
 export default {
-  accentBackground: '#9bc1bc',
-  accentText: '#390040',
-  background: '#b4b8ab',
-  accent: '#077187',
+  brandColor: '#A4DADF',
+  lightAccent: '#9E927E',
+  lightShade: '#F4F7F7',
+  darkAccent: '#808383',
+  darkShade: '#2D404E',
 }

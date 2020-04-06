@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Manjari";
+    src: url("Manjari/Manjari-Bold.ttf"),
+        url("Manjari/Manjari-Regular.ttf"),
+        url("Manjari/Manjari-Thin.ttf");
+}
+
+@font-face {
+    font-family: "Crete_Round";
+    src: url("Crete_Round/CreteRound-Regular.ttf"),
+        url("Crete_Round/CreteRound-Italic.ttf");
+}
+
+@font-face {
+    font-family: "Jomolhari";
+    src: url("Jomolhari/Jomolhari-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("Montserrat/Montserrat-Black.ttf"),
+         url("Montserrat/Montserrat-BlackItalic.ttf"),
+         url("Montserrat/Montserrat-Bold.ttf"),
+         url("Montserrat/Montserrat-BoldItalic.ttf"),
+         url("Montserrat/Montserrat-ExtraBold.ttf"),
+         url("Montserrat/Montserrat-ExtraBoldItalic.ttf"),
+         url("Montserrat/Montserrat-ExtraLight.ttf"),
+         url("Montserrat/Montserrat-ExtraLightItalic.ttf"),
+         url("Montserrat/Montserrat-Italic.ttf"),
+         url("Montserrat/Montserrat-Light.ttf"),
+         url("Montserrat/Montserrat-LightItalic.ttf"),
+         url("Montserrat/Montserrat-Medium.ttf"),
+         url("Montserrat/Montserrat-MediumItalic.ttf"),
+         url("Montserrat/Montserrat-Regular.ttf"),
+         url("Montserrat/Montserrat-SemiBold.ttf"),
+         url("Montserrat/Montserrat-SemiBoldItalic.ttf"),
+         url("Montserrat/Montserrat-Thin.ttf"),
+         url("Montserrat/Montserrat-ThinItalic.ttf");
+}

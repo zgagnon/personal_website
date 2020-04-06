@@ -5981,6 +5981,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emotion-reset@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "emotion-reset@npm:2.0.7"
+  peerDependencies:
+    "@emotion/core": ">=10"
+  checksum: 2/cd25e2afdfba3d4811b0f8e6656bfd4239a992e7cc37017c722b17d8126101dd247acabc7499bf274bd63c9082be4861364ff06637a3f29df7c033997b6a735a
+  languageName: node
+  linkType: hard
+
 "encodeurl@npm:~1.0.2":
   version: 1.0.2
   resolution: "encodeurl@npm:1.0.2"
@@ -7490,6 +7499,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-core-utils@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "gatsby-core-utils@npm:1.1.1"
+  dependencies:
+    ci-info: 2.0.0
+    configstore: ^5.0.1
+    node-object-hash: ^2.0.0
+  checksum: 2/a0b219d862c96952c2ab46e8d9c59d5661d82e06ffd61a06054659cc0aad47d38c47812c8f5809d5d6747d1b0ecbd579eaa48baf8e66495d39872e1132e87b58
+  languageName: node
+  linkType: hard
+
 "gatsby-graphiql-explorer@npm:^0.2.36":
   version: 0.2.36
   resolution: "gatsby-graphiql-explorer@npm:0.2.36"
@@ -7664,6 +7684,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-web-font-loader@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "gatsby-plugin-web-font-loader@npm:1.0.4"
+  dependencies:
+    babel-runtime: ^6.26.0
+    webfontloader: ^1.6.28
+  checksum: 2/4ed4678a84bd505737e21714a8092a54d0dee3c620a94971e341da1dfed9255857e87aeed8255da1c580cb7ddb754955728b758e64081595f31733c1be8ba41b
+  languageName: node
+  linkType: hard
+
 "gatsby-react-router-scroll@npm:^2.1.24":
   version: 2.1.24
   resolution: "gatsby-react-router-scroll@npm:2.1.24"
@@ -7680,9 +7710,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^2.1.56":
-  version: 2.1.56
-  resolution: "gatsby-source-filesystem@npm:2.1.56"
+"gatsby-source-filesystem@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "gatsby-source-filesystem@npm:2.2.2"
   dependencies:
     "@babel/runtime": ^7.8.7
     better-queue: ^3.8.10
@@ -7690,8 +7720,8 @@ fsevents@~2.1.2:
     chokidar: 3.3.1
     file-type: ^12.4.2
     fs-extra: ^8.1.0
-    gatsby-core-utils: ^1.0.34
-    got: ^8.3.2
+    gatsby-core-utils: ^1.1.1
+    got: ^9.6.0
     md5-file: ^3.2.3
     mime: ^2.4.4
     pretty-bytes: ^5.3.0
@@ -7701,7 +7731,7 @@ fsevents@~2.1.2:
     xstate: ^4.8.0
   peerDependencies:
     gatsby: ^2.2.0
-  checksum: 2/b2fe5ff442efa0eea78508f7386986bb2895c62423129b5aad86647f5ea6a682abf28ceebb695b5f45933adce9b88da43239c27c0ddf3e2b6b4e9fbffd21c0be
+  checksum: 2/81f47c87e1a04e4284370548ec3c3f833612074b2135bf22e32974cbb2a5e94e48945b2f44fdd1e34dd02138158deb51c96821a0c4fc848f4cbf7b738469c892
   languageName: node
   linkType: hard
 
@@ -7715,6 +7745,7 @@ fsevents@~2.1.2:
     "@emotion/styled": ^10.0.27
     "@typescript-eslint/eslint-plugin": ^2.26.0
     "@typescript-eslint/parser": ^2.26.0
+    emotion-reset: ^2.0.7
     eslint: ^6.8.0
     eslint-config-prettier: ^6.10.1
     eslint-plugin-prettier: ^3.1.2
@@ -7727,7 +7758,8 @@ fsevents@~2.1.2:
     gatsby-plugin-react-helmet: ^3.1.24
     gatsby-plugin-sharp: ^2.4.13
     gatsby-plugin-typescript: ^2.3.1
-    gatsby-source-filesystem: ^2.1.56
+    gatsby-plugin-web-font-loader: ^1.0.4
+    gatsby-source-filesystem: ^2.2.2
     gatsby-transformer-sharp: ^2.3.19
     prettier: ^1.19.1
     prop-types: ^15.7.2
@@ -16384,6 +16416,13 @@ typescript@^3.8.3:
   dependencies:
     minimalistic-assert: ^1.0.0
   checksum: 2/5916a49cb25fc8c70e4e7eb2d01955061132687a79879292fbdee632952f368c12bc5a641d0404794dbc0e3563f8b6e74dda04467b3e96be8bcd0b919bd47a8c
+  languageName: node
+  linkType: hard
+
+"webfontloader@npm:^1.6.28":
+  version: 1.6.28
+  resolution: "webfontloader@npm:1.6.28"
+  checksum: 2/fea984c451eecc1566a13bdcaf04d50b0f38a032ed7c4b6d81d126f0b5434ea16a5e70d38075e21a8f6d300ff84637c329244a522f40719ebfc86bbb791f6ae3
   languageName: node
   linkType: hard
 

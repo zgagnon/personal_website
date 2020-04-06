@@ -1,14 +1,16 @@
 /** @jsx jsx */
-import { css, jsx, Global } from '@emotion/core'
+import {css, jsx, Global} from '@emotion/core'
+import emotionReset from 'emotion-reset';
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import {useStaticQuery, graphql} from "gatsby"
 import React, {Fragment} from 'react'
 import Header from "./header";
 import colors from "../styles/colors";
+import "./normalize.css"
 
 
-const Layout = ({ children }:{children: any[]}) => {
-  const data = useStaticQuery(graphql`
+const Layout = ({children}: { children: any[] }) => {
+	const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -18,42 +20,55 @@ const Layout = ({ children }:{children: any[]}) => {
     }
   `);
 
-  return (
-    <Fragment>
-      <Global
-      styles={css`
+	return (
+		<Fragment>
+			<Global
+				styles={css`
+        ${emotionReset}
         body {
-            background: '#f7f9ff';
+            background: ${colors.lightShade};
+            font-family: "Montserrat-Light";
+            color: ${colors.darkShade};
+            font-size: 14pt;
             }
       }`}/>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        css={{
-          border: `1px solid ${colors.accent}`,
-          height: '.2rem',
-          background: colors.accent,
-        }}/>
-      <div
-        css={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+			<Header siteTitle={data.site.siteMetadata.title}/>
 
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </Fragment>
-  )
+			<div
+				css={{
+					maxWidth: 1200,
+					margin: 'auto',
+					paddingTop: 16,
+					paddingBottom: 16,
+					pageBreakBefore: 'avoid',
+				}}
+			>
+				<main>{children}</main>
+			</div>
+
+			<footer css={{
+				background: colors.lightAccent,
+				position: 'relative',
+				height: 80,
+				'@media print': {
+					visibility: 'hidden',
+				}
+			}}>
+       <span css={{
+         position: 'absolute',
+         bottom: 8,
+         right: 16,
+       }}> © {new Date().getFullYear()}, Built with
+	       {` `}
+	       <a href="https://www.gatsbyjs.org">Gatsby</a>
+       </span>
+			</footer>
+		</Fragment>
+	)
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 }
 
 export default Layout
