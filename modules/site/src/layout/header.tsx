@@ -2,7 +2,7 @@
 import {css, jsx} from '@emotion/core'
 import {Link} from "gatsby"
 import React from "react"
-import colors from "../styles/colors";
+import colors from "../designSystem/colors";
 
 const OverviewTitle: React.FC = (props:{children:any[]})  => {
     return (

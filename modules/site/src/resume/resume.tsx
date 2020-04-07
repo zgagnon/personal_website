@@ -1,51 +1,14 @@
-import React from 'react'
-import colors from '../styles/colors'
+/** @jsx jsx */
+import {jsx} from '@emotion/core'
 
-const interactiveBaseStyle = {
-	'@media print': {visibility: 'hidden'},
-	display: 'block',
-	borderStyle: 'solid',
-	textAlign: 'center',
-	borderColor: colors.darkShade,
-	background: colors.brandColor,
-	color: colors.darkShade,
-	borderWidth: '1px',
-	borderRadius: '3px',
-	height: 32,
-	width: 120,
-	margin: '4px',
-	cursor: 'pointer',
-}
+import * as React from 'react'
+import {PrimaryButton, SecondaryLink} from '../designSystem/components/buttons'
 
-const PrimaryButton: React.FC = ({children, onClick}: { children: any[], onClick: () => void }) => {
-	return (
-		<button onClick={onClick} css={{
-			...interactiveBaseStyle,
-			height: `${interactiveBaseStyle.height}px`,
-			width: `${interactiveBaseStyle.width}px`,
-			lineHeight: `${interactiveBaseStyle.height}px`,
-		}}>{children}
-		</button>
-	)
-}
-
-const SecondaryLink: React.FC = ({children, href}: { children: any[], href: string }) => {
-	return (
-		<a href={href} css={{
-			...interactiveBaseStyle,
-			background: colors.lightShade,
-			height: `${interactiveBaseStyle.height - 2}px`,
-			width: `${interactiveBaseStyle.width - 2}px`,
-			lineHeight: `${interactiveBaseStyle.height - 2}px`,
-			textAlign: 'center',
-		}}>{children}</a>
-	)
-}
 const print = () => {
 	window.print();
 }
 
-const PageTitle: React.FC = ({children}: { children: any[] }) => {
+const PageTitle: React.FC = ({children}) => {
 	return (
 		<h2 css={{
 			fontSize: '32pt',
@@ -56,24 +19,19 @@ const PageTitle: React.FC = ({children}: { children: any[] }) => {
 	)
 }
 
-const ResumeSectionTitle: React.FC = ({children}: { children: any[] }) => {
-	return (
-		<h2 css={{
-			paddingTop: '1rem',
-			paddingBottom: '1rem',
-			fontSize: '28pt',
-			fontFamily: 'Manjari',
-		}}>
-			{children}
-		</h2>
-	)
+interface PositionProps {
+	title: string,
+	company: string,
+	duration: string,
 }
 
-const Position: React.FC = (props: { title: string, company: string, duration: string, children: any[] }) => {
+const CalloutListStyles = {
+	paddingBottom: 16,
+}
+
+const Position: React.FC<PositionProps> = (props) => {
 	return (
-		<div css={{
-			paddingTop: '16px',
-		}}><span css={{
+		<div css={CalloutListStyles}><span css={{
 			fontsize: '16pt',
 		}}>
 			<strong css={{fontWeight: 'bold'}}>{props.title}</strong>, {props.company} <em
@@ -85,13 +43,39 @@ const Position: React.FC = (props: { title: string, company: string, duration: s
 		</div>)
 };
 
-const ResumeSection: React.FC = ({children}: { children: any[] }) => {
+const CalloutList: React.FC = (props) => {
+	return <ul css={{CalloutListStyles}}>{props.children}</ul>
+}
+
+interface SectionProps {
+	title: string
+}
+
+const ResumeSection: React.FC<SectionProps> = ({children, title}) => {
 	return (
-		<div>{children}</div>
+		<div css={{
+			display: 'flex',
+			flexDirection: 'column',
+			alignContent: 'space-around',
+			paddingBottom: '16px',
+		}}>
+			<h2 css={{
+				display: 'flex',
+				justifyContent: 'left',
+				alignItems: 'center',
+				height: '40px',
+				fontSize: '32px',
+				lineHeight: '40px',
+				fontFamily: 'Manjari',
+			}}>
+				{title}
+			</h2>
+			{children}
+		</div>
 	)
 }
 
-const Callout: React.FC = ({children}: { children: any[] }) => {
+const Callout: React.FC = ({children}) => {
 	return (
 		<li css={{
 			paddingLeft: '8px',
@@ -108,15 +92,23 @@ const Resume = () => {
 				<PrimaryButton onClick={print}>Print</PrimaryButton>
 				<SecondaryLink href="mailto:zoe@zgagnon.com">Contact Me</SecondaryLink>
 			</div>
-			<div css={{display: 'flex', flexDirection: 'column', marginLeft: 32, marginRight: 32}}>
-				<PageTitle>Who Am I</PageTitle>
-				I'm passionate about helping teams become better versions of themselves.
-				I am driven by giving people the skills, the freedom, and the safety to succeed.
-				I believe that when we come together we are stronger than any one of us individually.
-
-				<ResumeSection>
-					<ResumeSectionTitle>EXPERIENCE</ResumeSectionTitle>
-
+			<div css={{
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'left',
+				marginLeft: 32,
+				marginRight: 32
+			}}>
+				<div css={{
+					paddingBottom: '16px'
+				}}>
+					<PageTitle>Who Am I</PageTitle>
+					I'm passionate about helping teams become better versions of themselves.
+					I am driven by giving people the skills, the freedom, and the safety to succeed.
+					I believe that when we come together we are stronger than any one of us individually.
+				</div>
+				<ResumeSection title="EXPERIENCE">
 					<Position title="Software Engineering Manager" company="Meetup" duration="July 2018 - Apr 2020">
 						<Callout>Managed a team of 12 people to deliver a new homepage experience in a highly complex cloud
 							ecosystem.
@@ -223,50 +215,48 @@ const Resume = () => {
 					</Position>
 				</ResumeSection>
 
-				<ResumeSection>
-					<ResumeSectionTitle>EDUCATION</ResumeSectionTitle>
-					Bachelor of Science, Computer Science
-					Metropolitan State University of Denver, Denver CO, 2010 Minor: Mathematics
+				<ResumeSection title="EDUCATION">
+					<span css={{paddingBottom: '8px'}}>
+					Bachelor of Science, Computer Science<br/>
+					Minor: Mathematics<br/>
+					Metropolitan State University of Denver, Denver CO, 2010
+					</span>
 				</ResumeSection>
 
-				<ResumeSection>
-					<ResumeSectionTitle>Public Speaking</ResumeSectionTitle>
-					<ul>
-						<li>QCon - Inside Job, June 2019</li>
-						<li>Fullstack Academy Manager Panel - Panelist, May 2019</li>
-						<li>Women Who Code Connect - Micro and Mono, Mar 2019</li>
-						<li> Global Diversity CFP Day - Workshop Facilitator, Mar 2019</li>
-						<li> Global Diversity CFP Day - Workshop Facilitator, Jan 2018</li>
-						<li> Spring One Conference - Solid In The Wild, Dec 2017</li>
-						<li> Write Speak Code - Workshop facilitator, Nov 2017</li>
-						<li> Pivotal Tech Talk Tuesdays - Introduction to Reactive Streams, Jun 2017</li>
-						<li> She Says Horror Stories 2 - Panelist, Oct 2016</li>
-						<li> CODE Debugging the Gender Gap Screening - Panelist, May 2016</li>
-					</ul>
+				<ResumeSection title="PUBLIC SPEAKING">
+					<CalloutList>
+						<Callout>QCon - Inside Job, June 2019</Callout>
+						<Callout>Fullstack Academy Manager Panel - Panelist, May 2019</Callout>
+						<Callout>Women Who Code Connect - Micro and Mono, Mar 2019</Callout>
+						<Callout> Global Diversity CFP Day - Workshop Facilitator, Mar 2019</Callout>
+						<Callout> Global Diversity CFP Day - Workshop Facilitator, Jan 2018</Callout>
+						<Callout> Spring One Conference - Solid In The Wild, Dec 2017</Callout>
+						<Callout> Write Speak Code - Workshop facilitator, Nov 2017</Callout>
+						<Callout> Pivotal Tech Talk Tuesdays - Introduction to Reactive Streams, Jun 2017</Callout>
+						<Callout> She Says Horror Stories 2 - Panelist, Oct 2016</Callout>
+						<Callout> CODE Debugging the Gender Gap Screening - Panelist, May 2016</Callout>
+					</CalloutList>
 				</ResumeSection>
 
-				<ResumeSection>
-					<ResumeSectionTitle>Text Media</ResumeSectionTitle>
-					<ul>
-						<li> Being Your Authentic Self - Interview, Built To Adapt</li>
-						<li> Asking for Gender in Applications - Article, Built To Adapt</li>
-					</ul>
+				<ResumeSection title="TEXT MEDIA">
+					<CalloutList>
+						<Callout> Being Your Authentic Self - Interview, Built To Adapt</Callout>
+						<Callout> Asking for Gender in Applications - Article, Built To Adapt</Callout>
+					</CalloutList>
 				</ResumeSection>
 
-				<ResumeSection>
-					<ResumeSectionTitle>Audio</ResumeSectionTitle>
-					<ul>
-						<li>Interview - From the Source Podcast</li>
-						<li>Interview - StemOnFire Podcast</li>
-					</ul>
+				<ResumeSection title="AUDIO">
+					<CalloutList>
+						<Callout>Interview - From the Source Podcast</Callout>
+						<Callout>Interview - StemOnFire Podcast</Callout>
+					</CalloutList>
 				</ResumeSection>
 
-				<ResumeSection>
-					<ResumeSectionTitle>GROUPS AND ACTIVITIES</ResumeSectionTitle>
-					<ul>
-						<li> Codebar.io - Coach</li>
-						<li> Interests: Clothing design, French cooking and baking.</li>
-					</ul>
+				<ResumeSection title="GROUPS AND ACTIVITIES">
+					<CalloutList>
+						<Callout> Codebar.io - Coach</Callout>
+						<Callout> Interests: Clothing design, French cooking and baking.</Callout>
+					</CalloutList>
 				</ResumeSection>
 			</div>
 		</div>

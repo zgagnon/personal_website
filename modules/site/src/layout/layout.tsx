@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import {useStaticQuery, graphql} from "gatsby"
 import React, {Fragment} from 'react'
 import Header from "./header";
-import colors from "../styles/colors";
+import colors from "../designSystem/colors";
 import "./normalize.css"
 
 
