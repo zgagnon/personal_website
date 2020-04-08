@@ -7,6 +7,7 @@ import React, {Fragment} from 'react'
 import Header from "./header";
 import colors from "../designSystem/colors";
 import "./normalize.css"
+import {MAIN_GRID_COLUMNS, MAIN_GRID_ROWS} from '../designSystem/components/layout'
 
 
 const Layout = ({children}: { children: any[] }) => {
@@ -37,13 +38,18 @@ const Layout = ({children}: { children: any[] }) => {
 			<div
 				css={{
 					maxWidth: 1200,
-					margin: 'auto',
+					margin: '0 auto',
 					paddingTop: 16,
 					paddingBottom: 16,
 					pageBreakBefore: 'avoid',
 				}}
 			>
-				<main>{children}</main>
+				<main css={{
+					display: 'grid',
+					gridTemplateColumns: MAIN_GRID_COLUMNS,
+					gridTemplateRows: MAIN_GRID_ROWS,
+					alignItems: 'start',
+				}}>{children}</main>
 			</div>
 
 			<footer css={{
@@ -55,9 +61,9 @@ const Layout = ({children}: { children: any[] }) => {
 				}
 			}}>
        <span css={{
-         position: 'absolute',
-         bottom: 8,
-         right: 16,
+	       position: 'absolute',
+	       bottom: 8,
+	       right: 16,
        }}> © {new Date().getFullYear()}, Built with
 	       {` `}
 	       <a href="https://www.gatsbyjs.org">Gatsby</a>

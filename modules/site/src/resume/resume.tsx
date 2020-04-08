@@ -3,6 +3,8 @@ import {jsx} from '@emotion/core'
 
 import * as React from 'react'
 import {PrimaryButton, SecondaryLink} from '../designSystem/components/buttons'
+import {PageTitle} from '../designSystem/components/typography'
+import {getGridArea} from '../designSystem/components/layout'
 
 const print = () => {
 	window.print();
@@ -72,16 +74,11 @@ const Callout: React.FC = ({children}) => {
 	)
 }
 const Resume = () => {
-	return (
-		<div css={{
-			display: 'flex',
-			margin: '1rem 0 0 0',
-		}}>
-			<div css={{marginRight: '16px', width: '152px'}}>
-				<PrimaryButton onClick={print}>Print</PrimaryButton>
-				<SecondaryLink href="mailto:zoe@zgagnon.com">Contact Me</SecondaryLink>
-			</div>
+	return (<React.Fragment>
+			<PageTitle gridArea={[1, 1, 2, 2]}>Resume</PageTitle>
+			<PrimaryButton onClick={print} localCss={{gridArea: '2 / 1 / 2 / 2',}}>Print</PrimaryButton>
 			<div css={{
+				gridArea: getGridArea([2, 3, 'bottom', 'end']),
 				display: 'flex',
 				flexDirection: 'column',
 				justifyContent: 'center',
@@ -240,7 +237,7 @@ const Resume = () => {
 					</CalloutList>
 				</ResumeSection>
 			</div>
-		</div>
+		</React.Fragment>
 	)
 }
 

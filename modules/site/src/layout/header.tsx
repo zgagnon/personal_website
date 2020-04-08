@@ -3,6 +3,8 @@ import {css, jsx} from '@emotion/core'
 import {Link} from "gatsby"
 import React from "react"
 import colors from "../designSystem/colors";
+import {SecondaryLink} from '../designSystem/components/buttons'
+import {MAIN_GRID_COLUMNS} from '../designSystem/components/layout'
 
 interface NavLinkProps {
 	column: number
@@ -36,8 +38,8 @@ const Header = (props: { siteTitle: string }) => (
 				margin: '0 auto',
 				display: 'grid',
 				paddingTop: 16,
-				gridTemplateColumns: '75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px',
-				gridTemplateRows: '54px 18px',
+				gridTemplateColumns: MAIN_GRID_COLUMNS,
+				gridTemplateRows: '54px 18px [bottom]',
 				alignItems: 'center',
 			}}>
 			<h1
@@ -58,8 +60,9 @@ const Header = (props: { siteTitle: string }) => (
 					}
 				</Link>
 			</h1>
-			<NavLink to="/" column={15}> Home </NavLink>
-			<NavLink to="/resume" column={16}>Resume</NavLink>
+			<NavLink to="/" column={1}> Home </NavLink>
+			<NavLink to="/resume" column={2}>Resume</NavLink>
+			<SecondaryLink href="mailto:zoe@zgagnon.com" gridArea={[2, 16, 'bottom', 'end']} reverseColors>Contact Me</SecondaryLink>
 		</div>
 		< div css={{
 			marginTop: 8,

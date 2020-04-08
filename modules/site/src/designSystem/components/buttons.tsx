@@ -1,10 +1,14 @@
 /** @jsx jsx */
-import {jsx} from '@emotion/core'
+import {css, Interpolation, jsx} from '@emotion/core'
 
 import colors from '../colors'
 import * as React from 'react'
+import {getGridArea, GridArea} from './layout'
 
-const interactiveBaseStyle = {
+const BUTTON_HEIGHT = 32
+const BUTTON_WIDTH = 120
+
+const interactiveBaseStyle = css({
 	'@media print': {visibility: 'hidden'},
 	display: 'block',
 	borderStyle: 'solid',
@@ -14,41 +18,48 @@ const interactiveBaseStyle = {
 	color: colors.darkShade,
 	borderWidth: '1px',
 	borderRadius: '3px',
-	height: 32,
-	width: 120,
+	height: BUTTON_HEIGHT,
+	width: BUTTON_WIDTH,
 	margin: '4px',
 	cursor: 'pointer',
-}
+})
 
 interface ButtonProps {
 	onClick: () => void
+	localCss?: Interpolation
 }
 
-export const PrimaryButton: React.FC<ButtonProps> = ({children, onClick}) => {
+export const PrimaryButton: React.FC<ButtonProps> = ({children, onClick, localCss}) => {
+	const primaryButtonStyles = css({
+		height: `${BUTTON_HEIGHT}px`,
+		width: `${BUTTON_WIDTH}px`,
+		lineHeight: `${BUTTON_HEIGHT}px`
+	})
+	const combinedCss = css(interactiveBaseStyle, primaryButtonStyles, localCss)
 	return (
-		<button onClick={onClick} css={{
-			...interactiveBaseStyle,
-			height: `${interactiveBaseStyle.height}px`,
-			width: `${interactiveBaseStyle.width}px`,
-			lineHeight: `${interactiveBaseStyle.height}px`,
-		}}>{children}
+		<button onClick={onClick} css={combinedCss}>{children}
 		</button>
 	)
 }
 
 interface AnchorProps {
+	reverseColors?: boolean
 	href: string
+	localCss?: Interpolation
+
 }
 
-export const SecondaryLink: React.FC<AnchorProps> = ({children, href}) => {
+export const SecondaryLink: React.FC<AnchorProps & GridArea> = ({children, href,localCss, gridArea, reverseColors}) => {
+	const secondarylinkstyles = css({
+		background: reverseColors ? colors.brandColor : colors.lightShade,
+		height: `${BUTTON_HEIGHT - 2}px`,
+		width: `${BUTTON_WIDTH - 2}px`,
+		lineHeight: `${BUTTON_HEIGHT - 2}px`,
+		textAlign: 'center',
+		gridArea: getGridArea(gridArea),
+	})
+	const combinedCss = css(interactiveBaseStyle, secondarylinkstyles, localCss)
 	return (
-		<a href={href} css={{
-			...interactiveBaseStyle,
-			background: colors.lightShade,
-			height: `${interactiveBaseStyle.height - 2}px`,
-			width: `${interactiveBaseStyle.width - 2}px`,
-			lineHeight: `${interactiveBaseStyle.height - 2}px`,
-			textAlign: 'center',
-		}}>{children}</a>
+		<a href={href} css={combinedCss}>{children}</a>
 	)
 }
