@@ -8,17 +8,6 @@ const print = () => {
 	window.print();
 }
 
-const PageTitle: React.FC = ({children}) => {
-	return (
-		<h2 css={{
-			fontSize: '32pt',
-			fontFamily: 'Manjari',
-			height: '48px',
-			lineHeight: '48px',
-		}}>{children}</h2>
-	)
-}
-
 interface PositionProps {
 	title: string,
 	company: string,
@@ -100,14 +89,6 @@ const Resume = () => {
 				marginLeft: 32,
 				marginRight: 32
 			}}>
-				<div css={{
-					paddingBottom: '16px'
-				}}>
-					<PageTitle>Who Am I</PageTitle>
-					I'm passionate about helping teams become better versions of themselves.
-					I am driven by giving people the skills, the freedom, and the safety to succeed.
-					I believe that when we come together we are stronger than any one of us individually.
-				</div>
 				<ResumeSection title="EXPERIENCE">
 					<Position title="Software Engineering Manager" company="Meetup" duration="July 2018 - Apr 2020">
 						<Callout>Managed a team of 12 people to deliver a new homepage experience in a highly complex cloud

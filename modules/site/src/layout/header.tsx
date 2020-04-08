@@ -4,52 +4,71 @@ import {Link} from "gatsby"
 import React from "react"
 import colors from "../designSystem/colors";
 
-const OverviewTitle: React.FC = (props:{children:any[]})  => {
-    return (
-      <h1 style={{margin: 0}}>
-        <Link
-          to="/"
-          css={{
-            color: colors.darkShade,
-            textDecoration: `none`,
-            fontSize: '42pt',
-            fontFamily: 'Manjari',
-          }}
-        >
-          {props.children}
-        </Link>
-      </h1>
-    )
+interface NavLinkProps {
+	column: number
+	to: string
 }
 
-const Header = (props:{siteTitle:string}) => (
-  <header
-    css={{
-      marginBottom: `8px`,
-      lineHeight: '80px',
-      background: colors.brandColor,
-    }}
-  >
-    <div
-      css={{
-        maxWidth: 1200,
-        margin: `0 auto`,
-        padding: '8px',
-      }}
+const NavLink: React.FC<NavLinkProps> = ({column, to, children}) => {
+	return (
+		<Link to={to}
+		      css={{
+			      color: colors.darkShade,
+			      fontSize: '18px',
+			      fontFamily: 'Manjari',
+			      gridColumnStart: column,
+			      gridRowStart: 2,
+			      '@media print': {visibility: 'hidden'},
+		      }}>
+			{children}
+		</Link>
+	)
+}
 
-    >
-      <OverviewTitle>{props.siteTitle}</OverviewTitle>
-    </div>
-
-    <div
-      css={{
-        marginTop: 8,
-        border: `1px solid ${colors.lightAccent}`,
-        height: '4px',
-        background: colors.lightAccent,
-        pageBreakAfter: 'avoid',
-      }}/>
-  </header>
+const Header = (props: { siteTitle: string }) => (
+	<header
+		css={{
+			background: colors.brandColor,
+		}}>
+		<div
+			css={{
+				maxWidth: 1200,
+				margin: '0 auto',
+				display: 'grid',
+				paddingTop: 16,
+				gridTemplateColumns: '75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px 75px',
+				gridTemplateRows: '54px 18px',
+				alignItems: 'center',
+			}}>
+			<h1
+				css={{
+					gridColumnStart: 1,
+					gridColumnEnd: 8,
+				}}>
+				<Link
+					to="/"
+					css={{
+						color: colors.darkShade,
+						textDecoration: `none`,
+						fontSize: '54px',
+						fontFamily: 'Manjari',
+					}}>
+					{
+						props.siteTitle
+					}
+				</Link>
+			</h1>
+			<NavLink to="/" column={15}> Home </NavLink>
+			<NavLink to="/resume" column={16}>Resume</NavLink>
+		</div>
+		< div css={{
+			marginTop: 8,
+			border: `1px solid ${colors.lightAccent}`,
+			height: '4px',
+			background: colors.lightAccent,
+			pageBreakAfter: 'avoid',
+		}}/>
+	</header>
 )
 
 export default Header
