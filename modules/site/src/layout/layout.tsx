@@ -31,6 +31,7 @@ const Layout = ({children}: { children: any[] }) => {
             font-family: "Montserrat-Light";
             color: ${colors.darkShade};
             font-size: 14pt;
+            line-height: 150%;
             }
       }`}/>
 			<Header siteTitle={data.site.siteMetadata.title}/>

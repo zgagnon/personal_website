@@ -84,7 +84,10 @@ const Resume = () => {
 				justifyContent: 'center',
 				alignItems: 'left',
 				marginLeft: 32,
-				marginRight: 32
+				marginRight: 32,
+				'@media print': {
+					orphans: 2,
+				}
 			}}>
 				<ResumeSection title="EXPERIENCE">
 					<Position title="Software Engineering Manager" company="Meetup" duration="July 2018 - Apr 2020">
@@ -110,7 +113,7 @@ const Resume = () => {
 							applications.</Callout>
 					</Position>
 
-					<Position title="Conference Organizer" company="Write/Speak/Code" duration="Sep 2017 - Current">
+					<Position title="Board Member" company="Write/Speak/Code" duration="Dec 2018 - Nov 2019">
 						<Callout> Write/Speak/Code - Global Conference Content Chair</Callout>
 						<Callout> Write/Speak/Code - New York Meetup Co-Organizer, Conference Talk Selection Committee</Callout>
 						<Callout> Global Diversity CFP Day - New York Co-Organizer, Workshop Facilitator</Callout>
@@ -200,7 +203,7 @@ const Resume = () => {
 					Metropolitan State University of Denver, Denver CO, 2010
 					</span>
 				</ResumeSection>
-
+				<div css={{'@media print': {pageBreakAfter: 'always'}}}/>
 				<ResumeSection title="PUBLIC SPEAKING">
 					<CalloutList>
 						<Callout>QCon - Inside Job, June 2019</Callout>
