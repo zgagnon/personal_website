@@ -103,7 +103,6 @@ dist
 # TernJS port file
 .tern-port
 .idea
-.yarn
 *.iml
 .pnp.js
 .firebase

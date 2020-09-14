@@ -864,10 +864,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2":
-  version "7.10.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
-  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+"@babel/runtime@^7.10.3":
+  version "7.11.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
+  integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -5584,11 +5584,8 @@ gatsby-graphiql-explorer@^0.3.1:
     "@babel/runtime" "^7.8.7"
 
 gatsby-image@^2.2.44:
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.4.6.tgz#5594dd119b73581a35c087351d35c7715ea5c66c"
-  integrity sha512-4Sw7HFl9wktsa0TRyauHw/cLKHjvbDT43/5qNE+4CKXzpBY6JoUJR2tID1GKSVElo/Hhyesu1KsyhicsJ4e0wA==
   dependencies:
-    "@babel/runtime" "^7.10.2"
+    "@babel/runtime" "^7.10.3"
     object-fit-images "^3.2.4"
     prop-types "^15.7.2"
 
