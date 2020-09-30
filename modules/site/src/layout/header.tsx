@@ -8,10 +8,11 @@ import {MAIN_GRID_COLUMNS} from '../designSystem/components/layout'
 
 interface NavLinkProps {
 	column: number
+	width: number
 	to: string
 }
 
-const NavLink: React.FC<NavLinkProps> = ({column, to, children}) => {
+const NavLink: React.FC<NavLinkProps> = ({column, width = 1, to, children}) => {
 	return (
 		<Link to={to}
 		      css={{
@@ -19,6 +20,7 @@ const NavLink: React.FC<NavLinkProps> = ({column, to, children}) => {
 			      fontSize: '18px',
 			      fontFamily: 'Manjari',
 			      gridColumnStart: column,
+						gridColumnEnd: column + width,
 			      gridRowStart: 2,
 			      '@media print': {visibility: 'hidden'},
 		      }}>
@@ -62,6 +64,7 @@ const Header = (props: { siteTitle: string }) => (
 			</h1>
 			<NavLink to="/" column={1}> Home </NavLink>
 			<NavLink to="/resume" column={2}>Resume</NavLink>
+			<NavLink to="/manager-readme" column={3} width={2}>Manager Readme</NavLink>
 			<SecondaryLink href="mailto:zoe@zgagnon.com" gridArea={[2, 16, 'bottom', 'end']} reverseColors>Contact Me</SecondaryLink>
 		</div>
 		< div css={{

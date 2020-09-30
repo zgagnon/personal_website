@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import {jsx} from '@emotion/core'
+import { jsx } from '@emotion/core'
 
-import * as React from 'react'
-import {PrimaryButton, SecondaryLink} from '../designSystem/components/buttons'
-import {PageTitle} from '../designSystem/components/typography'
-import {getGridArea} from '../designSystem/components/layout'
+import * as React                     from 'react'
+import { PrimaryButton }              from '../designSystem/components/buttons'
+import { PageTitle }            from '../designSystem/components/typography'
+import { getGridArea, Section } from '../designSystem/components/layout'
 
 const print = () => {
 	window.print();
@@ -38,34 +38,6 @@ const CalloutList: React.FC = (props) => {
 	return <ul css={{CalloutListStyles}}>{props.children}</ul>
 }
 
-interface SectionProps {
-	title: string
-}
-
-const ResumeSection: React.FC<SectionProps> = ({children, title}) => {
-	return (
-		<div css={{
-			display: 'flex',
-			flexDirection: 'column',
-			alignContent: 'space-around',
-			paddingBottom: '16px',
-		}}>
-			<h2 css={{
-				display: 'flex',
-				justifyContent: 'left',
-				alignItems: 'center',
-				height: '40px',
-				fontSize: '32px',
-				lineHeight: '40px',
-				fontFamily: 'Manjari',
-			}}>
-				{title}
-			</h2>
-			{children}
-		</div>
-	)
-}
-
 const Callout: React.FC = ({children}) => {
 	return (
 		<li css={{
@@ -89,7 +61,7 @@ const Resume = () => {
 					orphans: 2,
 				}
 			}}>
-				<ResumeSection title="EXPERIENCE">
+				<Section title="EXPERIENCE">
 					<Position title="Software Engineering Manager" company="Meetup" duration="July 2018 - Apr 2020">
 						<Callout>Managed a team of 12 people to deliver a new homepage experience in a highly complex cloud
 							ecosystem.
@@ -194,17 +166,17 @@ const Resume = () => {
 							using Java 6.
 						</Callout>
 					</Position>
-				</ResumeSection>
+				</Section>
 
-				<ResumeSection title="EDUCATION">
+				<Section title="EDUCATION">
 					<span css={{paddingBottom: '8px'}}>
 					Bachelor of Science, Computer Science<br/>
 					Minor: Mathematics<br/>
 					Metropolitan State University of Denver, Denver CO, 2010
 					</span>
-				</ResumeSection>
+				</Section>
 				<div css={{'@media print': {pageBreakAfter: 'always'}}}/>
-				<ResumeSection title="PUBLIC SPEAKING">
+				<Section title="PUBLIC SPEAKING">
 					<CalloutList>
 						<Callout>QCon - Inside Job, June 2019</Callout>
 						<Callout>Fullstack Academy Manager Panel - Panelist, May 2019</Callout>
@@ -217,28 +189,28 @@ const Resume = () => {
 						<Callout> She Says Horror Stories 2 - Panelist, Oct 2016</Callout>
 						<Callout> CODE Debugging the Gender Gap Screening - Panelist, May 2016</Callout>
 					</CalloutList>
-				</ResumeSection>
+				</Section>
 
-				<ResumeSection title="TEXT MEDIA">
+				<Section title="TEXT MEDIA">
 					<CalloutList>
 						<Callout> Being Your Authentic Self - Interview, Built To Adapt</Callout>
 						<Callout> Asking for Gender in Applications - Article, Built To Adapt</Callout>
 					</CalloutList>
-				</ResumeSection>
+				</Section>
 
-				<ResumeSection title="AUDIO">
+				<Section title="AUDIO">
 					<CalloutList>
 						<Callout>Interview - From the Source Podcast</Callout>
 						<Callout>Interview - StemOnFire Podcast</Callout>
 					</CalloutList>
-				</ResumeSection>
+				</Section>
 
-				<ResumeSection title="GROUPS AND ACTIVITIES">
+				<Section title="GROUPS AND ACTIVITIES">
 					<CalloutList>
 						<Callout> Codebar.io - Coach</Callout>
 						<Callout> Interests: Clothing design, French cooking and baking.</Callout>
 					</CalloutList>
-				</ResumeSection>
+				</Section>
 			</div>
 		</React.Fragment>
 	)
