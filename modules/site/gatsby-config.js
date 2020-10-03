@@ -5,6 +5,7 @@ module.exports = {
         author: `Zoe Gagnon`,
     },
     plugins: [
+	    `gatsby-plugin-pnpm`,
         `gatsby-plugin-typescript`,
         `gatsby-plugin-react-helmet`,
         {

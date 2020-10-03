@@ -5,8 +5,14 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "scripts": {
-	"firebase:login": "npx firebase login",
-	"firebase:deploy": "npx firebase deploy"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "yarn eslint src/**/*.tsx"
   },
   "dependencies": {
     "@emotion/css": "^10.0.27",
@@ -38,6 +44,7 @@
     "eslint-plugin-react": "^7.19.0",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-emotion": "^4.2.1",
+    "gatsby-plugin-pnpm": "^1.2.5",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "prettier": "^1.19.1",
     "typescript": "^3.8.3"
@@ -46,16 +53,6 @@
     "gatsby"
   ],
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "yarn eslint src/**/*.tsx"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
