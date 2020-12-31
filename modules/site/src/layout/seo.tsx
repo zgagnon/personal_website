@@ -25,7 +25,9 @@ function SEO({ description, lang, meta, title }: Props) {
           siteMetadata {
             title
             description
-            author
+            author {
+              name
+            }
           }
         }
       }
@@ -64,7 +66,7 @@ function SEO({ description, lang, meta, title }: Props) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author.name,
         },
         {
           name: `twitter:title`,

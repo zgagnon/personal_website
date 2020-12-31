@@ -2,7 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `Zoe Gagnon`,
     description: `Personal site of Zoe Gagnon`,
-    author: `Zoe Gagnon`,
+    author: {
+      name: `Zoe Gagnon`,
+    },
   },
   plugins: [
     `gatsby-plugin-pnpm`,
