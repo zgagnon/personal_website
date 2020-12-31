@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {css, jsx, Global} from '@emotion/core'
+import {css, jsx, Global} from '@emotion/react'
 import emotionReset from 'emotion-reset';
 import PropTypes from "prop-types"
 import {useStaticQuery, graphql} from "gatsby"
